@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>AR </title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.js"></script>
+    <script>THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'</script>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam;">
+        <a-marker preset="hiro">
+            <!-- Adding an OBJ file to an AR Project-->
+            <a-entity id="hiroMarker" scale="0.01 0.01 0.01" obj-model="obj: url(https://storage.googleapis.com/ar-vr-12de3.appspot.com/IronMan.obj); 
+            mtl: url(https://storage.googleapis.com/ar-vr-12de3.appspot.com/IronMan.mtl)">
+            </a-entity>
+        </a-marker>
+        <a-entity camera>
+        </a-entity>
+    </a-scene>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
+</body>
+<script id="MainScript">
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyB2up9-H2w7OgbTJjubL7OUAK9uWjDOkJI",
+        authDomain: "ar-vr-12de3.firebaseapp.com",
+        databaseURL: "https://ar-vr-12de3-default-rtdb.firebaseio.com",
+        projectId: "ar-vr-12de3",
+        storageBucket: "ar-vr-12de3.appspot.com",
+        messagingSenderId: "233235157468",
+        appId: "1:233235157468:web:543a07bab218aaeb1dbf19",
+        measurementId: "G-1R92D58599"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var storage = firebase.storage();
+
+</script>
+
+</html>
+
+<!-- https://cdn.glitch.com/90685ec0-0603-4bfc-886f-0ab209d5be40%2FIronMan.obj?v=1623318737071 -->
+<!-- https://cdn.glitch.com/90685ec0-0603-4bfc-886f-0ab209d5be40%2FIronMan.mtl?v=1623318273685 -->
